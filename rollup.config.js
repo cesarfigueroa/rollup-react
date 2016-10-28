@@ -1,5 +1,6 @@
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
+import flow from 'rollup-plugin-flow';
 import nodeResolve from 'rollup-plugin-node-resolve';
 import replace from 'rollup-plugin-replace';
 
@@ -8,6 +9,9 @@ export default {
   dest: 'dist/bundle.js',
   format: 'iife',
   plugins: [
+    // Remove FlowType annotations
+    flow(),
+
     babel({
       babelrc: false,
       exclude: 'node_modules/**',
